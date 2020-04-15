@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+	<h1>Customer Inventory</h1>
+	<a href="{{ url_for('static', filename='excel/Customer Inventory.xlsx') }}">Export to Excel</a>
+	<br>
+	<br>
+	<table>
+		<tr>
+			<th>MAC</th>
+			<th>Serial</th>
+			<th>Model</th>
+			<th>Public IP</th>
+			<th>Name</th>
+		</tr>
+		{% for device in apiResponseData %}
+			<tr>
+				<td>{{ device.mac }}</td>
+				<td>{{ device.serial }}</td>
+				<td>{{ device.model }}</td>
+				<td>{{ device.publicIp }}</td>
+				<td>{{ device.name }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

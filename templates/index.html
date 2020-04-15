@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+	<h1>Customer Organizations</h1>
+
+	<table>
+		<tr>
+			<th>Organization Name</th>
+			<th>Organization ID</th>
+			<th>Actions</th>
+		</tr>
+		
+		{% for organization in organizations %}
+			<tr>
+				<td>{{ organization.name }}</td>
+				<td>{{ organization.id }}</td>
+				<td>
+					<a href="/{{organization.id }}/inventory">View Inventory</a>
+					<br>
+					<a href="/{{organization.id }}/networks">View Networks</a>
+					<br>
+					<a href="/{{ organization.id }}/delete">Remove Organization</a>
+				</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+
+	<h2>Add new organization</h2>
+	<form action="/" method="POST">
+		<table>
+			<tr>
+				<td>Organization Name: </td>
+				<td><input type="text" name="name" id="name" value='Meraki Launchpad🚀'></td>
+			</tr>
+			<tr>
+				<td>Organization ID: </td>
+				<td><input type="number" name="id" id="id" value='537758'></td>
+				
+			</tr>
+			<tr>
+				<td>Organization API Key:</td>
+				<td><input type="text" name="apiKey" id="apiKey" value='093b24e85df15a3e66f1fc359f4c48493eaa1b73'></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Add Organization"></td>
+			</tr>
+		</table>
+	</form>
+
+</div>
+{% endblock %}
