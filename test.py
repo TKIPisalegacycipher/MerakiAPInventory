@@ -35,12 +35,5 @@ apiResponse = requests.get(
 
 apiResponseData = apiResponse.json()
 
-count = 0
-
-wb = Workbook()
-dest_filename = id + "_inventory.xlsx"
-ws1 = wb.active
-ws1.title = "Inventory"
-
 for device in apiResponseData:
 	count += 1

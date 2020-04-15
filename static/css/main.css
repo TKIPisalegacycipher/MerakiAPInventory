@@ -38,3 +38,7 @@ td {
 input {
 	width: 90%;
 }
+
+.signature {
+	text-align: right;
+}
