@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="content">
-	<h1>Customer Networks</h1>
+	<h1>Organization {{organization}} Networks</h1>
 	<a href="{{ url_for('static', filename='excel/Customer Networks.xlsx') }}">Export to Excel</a>
 	<br>
 	<br>
@@ -17,13 +17,13 @@
 			<th>Tags</th>
 			<th>Type</th>
 		</tr>
-		{% for network in apiResponseData %}
+		{% for network in networks %}
 			<tr>
-				<td>{{ network.id }}</td>
-				<td>{{ network.name }}</td>
-				<td>{{ network.timeZone }}</td>
-				<td>{{ network.tags }}</td>
-				<td>{{ network.type }}</td>
+				<td>{{ network['id'] }}</td>
+				<td>{{ network['name'] }}</td>
+				<td>{{ network['timeZone'] }}</td>
+				<td>{{ network['tags'] }}</td>
+				<td>{{ network['type'] }}</td>
 			</tr>
 		{% endfor %}
 	</table>
