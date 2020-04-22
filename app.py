@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request, redirect
-from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 # We're only importing this for its ability to convert JSON to XLSX.
@@ -7,6 +6,7 @@ import pandas
 
 from meraki_sdk.meraki_sdk_client import MerakiSdkClient
 import jsonpickle
+import requests
 
 
 # With the Meraki SDK, we don't need these.
@@ -118,7 +118,7 @@ def inventory(id, organization_id):
 		return render_template('inventory.html', organization = organization_id, inventory = inventory)
 
 	except Exception as e:
-		return(e)
+		return(str(e))
 	
 	
 
@@ -144,7 +144,7 @@ def networks(id, organization_id):
 		return render_template('networks.html', organization = organization_id, networks = networks)
 
 	except Exception as e:
-		return(e)
+		return(str(e))
 
 
 if __name__ == "__main__":
