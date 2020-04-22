@@ -4,51 +4,72 @@
 {% endblock %}
 
 {% block body %}
-<div class="content">
-	<h1>Hello and welcome!</h1>
-	<p>I created this simple web app (based on Flask) to demonstrate a sliver of the functionality that the Meraki REST API offers. You can input any valid organization data you like, but the fields are auto-filled with Meraki's demo account information for ease of demonstration. Enjoy!</p>
-	<p class="signature">--<a href="https://www.linkedin.com/in/jmkuchta/">John M. Kuchta</a></p>
 
-	<h1>API Keys</h1>
+<!-- Heading -->
+	<div id="heading">
+		<h1>API Keys</h1>
+	</div>
 
-	<table>
-		<tr>
-			<th>Friendly Name</th>
-			<th>Last Four</th>
-			<th>Actions</th>
-		</tr>
-		
-		{% for key in keys %}
-			<tr>
-				<td>{{ key.name }}</td>
-				<td>{{ key.lastfour }}</td>
-				<td>
-					<a href="/key/{{ key.id }}/organizations">View Organizations</a>
-					<br>
-					<a href="/key/{{ key.id }}/delete">Remove Key</a>
-				</td>
-			</tr>
-		{% endfor %}
+<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="inner">
+			<div class="content">
 
-	</table>
+			<!-- Elements -->
+				<div class="row">
+					<div class="col-12 col-12-medium">
+						<div class="table-wrapper">
+							<table>
+								<tr>
+									<th>Friendly Name</th>
+									<th>Last Four</th>
+									<th>Actions</th>
+								</tr>
+								
+								{% for key in keys %}
+									<tr>
+										<td>{{ key.name }}</td>
+										<td>{{ key.lastfour }}</td>
+										<td>
+											<a href="/key/{{ key.id }}/organizations">View Organizations</a>
+											<br>
+											<a href="/key/{{ key.id }}/delete">Remove Key</a>
+										</td>
+									</tr>
+								{% endfor %}
+							</table>
+						</div>
+					</div>
+				</div>
 
-	<h2>Add new API key</h2>
-	<form action="/" method="POST">
-		<table>
-			<tr>
-				<td>API key:</td>
-				<td><input type="text" name="apiKey" id="apiKey" value='093b24e85df15a3e66f1fc359f4c48493eaa1b73'></td>
-			</tr>
-			<tr>
-				<td>Descriptive name:</td>
-				<td><input type="text" name="name" id="name" value='Demo API Key'></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="Add Key"></td>
-			</tr>
-		</table>
-	</form>
+				<div class="row">
+					<div class="col-12 col-12-medium">
+						<h2>Add new API key</h2>
+						<form action="/" method="POST">
+							<div class="row gtr-uniform">
+								<div class="col-12 col-12-xsmall">
+									<table>
+										<tr>
+											<td>API key:</td>
+											<td><input type="text" name="apiKey" id="apiKey" value='093b24e85df15a3e66f1fc359f4c48493eaa1b73'></td>
+										</tr>
+										<tr>
+											<td>Friendly name:</td>
+											<td><input type="text" name="name" id="name" value='Demo API Key'></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td><input type="submit" value="Add Key"></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 </div>
 {% endblock %}

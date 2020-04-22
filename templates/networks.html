@@ -4,28 +4,47 @@
 {% endblock %}
 
 {% block body %}
-<div class="content">
-	<h1>Organization {{organization}} Networks</h1>
-	<a href="{{ url_for('static', filename='excel/Customer Networks.xlsx') }}">Export to Excel</a>
-	<br>
-	<br>
-	<table>
-		<tr>
-			<th>Network ID</th>
-			<th>Name</th>
-			<th>Time Zone</th>
-			<th>Tags</th>
-			<th>Type</th>
-		</tr>
-		{% for network in networks %}
-			<tr>
-				<td>{{ network['id'] }}</td>
-				<td>{{ network['name'] }}</td>
-				<td>{{ network['timeZone'] }}</td>
-				<td>{{ network['tags'] }}</td>
-				<td>{{ network['type'] }}</td>
-			</tr>
-		{% endfor %}
-	</table>
-</div>
+
+<!-- Heading -->
+	<div id="heading">
+		<h1>Organization {{ organization }} Networks</h1>
+	</div>
+
+<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="inner">
+			<div class="content">
+
+				<!-- Elements -->
+					<div class="row">
+						<div class="col-12 col-12-medium">
+
+							<a href="{{ url_for('static', filename='excel/Customer Networks.xlsx') }}">Export to Excel</a>
+
+							<div class="table-wrapper">
+								<table>
+									<tr>
+										<th>Network ID</th>
+										<th>Name</th>
+										<th>Time Zone</th>
+										<th>Tags</th>
+										<th>Type</th>
+									</tr>
+									{% for network in networks %}
+										<tr>
+											<td>{{ network['id'] }}</td>
+											<td>{{ network['name'] }}</td>
+											<td>{{ network['timeZone'] }}</td>
+											<td>{{ network['tags'] }}</td>
+											<td>{{ network['type'] }}</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</section>
+
 {% endblock %}
