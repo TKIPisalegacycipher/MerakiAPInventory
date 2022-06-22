@@ -19,7 +19,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 meraki-sdk==1.5.0
 msgpack==1.0.0
-numpy==1.18.2
+numpy==1.22.0
 openpyxl==3.0.3
 pandas==1.0.3
 pylint==2.4.4
