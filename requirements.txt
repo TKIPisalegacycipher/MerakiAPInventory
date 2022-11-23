@@ -21,7 +21,7 @@ meraki-sdk==1.5.0
 msgpack==1.0.0
 numpy==1.22.0
 openpyxl==3.0.3
-pandas==1.0.3
+pandas==1.5.2
 pylint==2.4.4
 pyparsing==2.4.7
 python-dateutil==2.8.1
